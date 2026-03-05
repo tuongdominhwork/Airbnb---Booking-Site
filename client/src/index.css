@@ -6,6 +6,10 @@ html, body {
     font-family: "Crimson Text", serif;
 }
 
+* {
+    box-sizing: border-box;
+}
+
 h1, h2, h3, h4, p{
     margin: 0;
 }
@@ -13,21 +17,7 @@ h1, h2, h3, h4, p{
 a {
     text-decoration: none;
     color: black;
-    font-size: 14px;
+    font-size: 0.875rem;
     font-weight: bold;
 }
 
-#header-li {
-    margin: 0 15px 0 15px;
-}
-
-.header {
-    font-family: "DM Sans", sans-serif;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    position: sticky;
-    top: 0;
-    background: #F2F2F7;
-    height: 120px;
-}
