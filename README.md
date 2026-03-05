@@ -1,17 +1,94 @@
-# React + Vite
+# Airbnb 🏠
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+> ⚠️ **Work in Progress** — This project is currently under active development.
 
-Currently, two official plugins are available:
+A full-stack Airbnb-inspired listings app built with React, Node.js, Express, and SQLite.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## React Compiler
+## Tech Stack
+
+| Layer | Technology |
+|-------|-----------|
+| Frontend | React + Vite |
+| Backend | Node.js + Express |
+| Database | SQLite (better-sqlite3) |
+| Styling | CSS |
+| Routing | React Router |
+
+---
+
+## Project Structure
+
+```
+airbnb/
+├── client/          # React frontend (Vite)
+│   ├── src/
+│   │   ├── components/
+│   │   ├── pages/
+│   │   └── assets/
+│   └── public/
+├── server/          # Express backend
+│   ├── routes/
+│   │   └── listings.js
+│   ├── database.js
+│   ├── index.js
+│   └── seed.js
+└── README.md
+```
+
+---
+
+## Getting Started
+
+### 1. Clone the repo
+
+```bash
+git clone <your-repo-url>
+cd airbnb
+```
+
+### 2. Start the backend
+
+```bash
+cd server
+npm install
+node seed.js      # seed the database (run once)
+node index.js     # start the server on port 3001
+```
+
+### 3. Start the frontend
+
+```bash
+cd client
+npm install
+npm run dev       # starts on port 5173
+```
+
+---
+
+## Features
+
+- [x] Browse property listings
+- [x] SQLite database with seeded listings
+- [x] REST API (GET, POST, DELETE)
+- [ ] User authentication (login / register)
+- [ ] Create & manage your own listings
+- [ ] Search and filter listings
+- [ ] Listing detail page
+- [ ] Image upload
+
+---
+
+## API Endpoints
+
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| GET | `/api/listings` | Get all listings |
+| GET | `/api/listings/:id` | Get a single listing |
+| POST | `/api/listings` | Create a new listing |
+| DELETE | `/api/listings/:id` | Delete a listing |
 
 The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
 # Airbnb---Booking-Site

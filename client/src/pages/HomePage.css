@@ -1,0 +1,18 @@
+#content {
+    text-align: center;
+}
+
+#big-title {
+    font-size: 130px;
+    font-weight: 100;
+}
+
+.container {
+    margin-top: 20px;
+    display: grid;
+    grid-auto-rows: 257px;
+    grid-template-columns: repeat(4, 257px);
+    row-gap: 130px;
+    column-gap: 60px;
+    justify-content: center;
+}

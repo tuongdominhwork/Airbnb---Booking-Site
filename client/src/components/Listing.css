@@ -1,0 +1,32 @@
+.place {
+    text-align: start;
+}
+
+#place-title {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 3px 0 3px 0;
+}
+
+#place-des {
+    font-size: 15px;
+    margin: 3px 0 3px 0;
+    font-family: "DM Sans", sans-serif;
+    color: rgb(130, 130, 130);
+}
+
+#place-price {
+    font-size: 18px;
+    margin: 3px 0 3px 0;
+}
+
+#place-img {
+    width: 257px;
+    height: 257px;
+    border-radius: 25px;
+    transition: transform 0.3s ease;
+}
+
+#place-img:hover {
+    transform: scale(1.05);
+}
