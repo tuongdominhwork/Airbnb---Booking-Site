@@ -9,8 +9,26 @@ db.exec(`
     alt_text TEXT,
     title TEXT,
     description TEXT,
+    address TEXT,
     price REAL
   )
 `);
+
+db.exec(`
+  CREATE TABLE IF NOT EXISTS listing_images (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    listing_id INTEGER,
+    image TEXT,
+    alt_text TEXT,
+    FOREIGN KEY (listing_id) REFERENCES listings(id)
+  )
+`);
+
+// Migrate: add address column if it doesn't exist yet
+try {
+  db.exec('ALTER TABLE listings ADD COLUMN address TEXT');
+} catch (e) {
+  // column already exists, safe to ignore
+}
 
 module.exports = db;

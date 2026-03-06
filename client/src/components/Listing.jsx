@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import './Listing.css'
 
 const Listing = () => {
@@ -12,14 +13,14 @@ const Listing = () => {
     return (
         <>
             {listings.map(listing => (
-                <a key={listing.id} className="place" href="/temp.html" target="_blank">
+                <Link key={listing.id} className="place" to={`/listing/${listing.id}`}>
                     <img id="place-img" src={listing.image} alt={listing.alt_text} />
                     <h4 id="place-title">{listing.title}</h4>
                     <p id="place-des">{listing.description}</p>
                     <p id="place-price">
                         <span style={{ fontWeight: "bold" }}>${listing.price}</span> per night
                     </p>
-                </a>
+                </Link>
             ))}
         </>
     )

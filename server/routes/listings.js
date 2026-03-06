@@ -12,7 +12,8 @@ router.get('/', (req, res) => {
 router.get('/:id', (req, res) => {
   const listing = db.prepare('SELECT * FROM listings WHERE id = ?').get(req.params.id);
   if (!listing) return res.status(404).json({ error: 'Listing not found' });
-  res.json(listing);
+  const images = db.prepare('SELECT * FROM listing_images WHERE listing_id = ?').all(req.params.id);
+  res.json({ ...listing, images });
 });
 
 // POST a new listing

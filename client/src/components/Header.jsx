@@ -1,6 +1,11 @@
+import React from 'react'
+import { useLocation } from 'react-router-dom'
 import './Header.css'
 
 export default function Header() {
+    const location = useLocation()
+    const onLoginPage = location.pathname === '/login'
+
     return(
         <div className="header">
             <div className="logo">
@@ -15,8 +20,10 @@ export default function Header() {
                 </nav>
             </div>
 
-            <a href='/login'>
-                <button id="login-btn">Login</button>
+            <a href={onLoginPage ? '/register' : '/login'}>
+                <button id="login-btn">
+                    {onLoginPage ? 'Register' : 'Log in'}
+                </button>
             </a>
         </div>
     )
