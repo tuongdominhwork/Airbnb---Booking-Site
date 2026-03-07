@@ -13,10 +13,10 @@ export default function Header() {
             </div>
             <div className="navigation">
                 <nav id="header-nav">
-                    <li id="header-li"><a href="#">Benefits</a></li>
-                    <li id="header-li"><a href="#">Specifications</a></li>
-                    <li id="header-li"><a href="#">How-to</a></li>
-                    <li id="header-li"><a href="#">Contact Us</a></li>
+                    <li id="header-li"><a href="/benefits">Benefits</a></li>
+                    <li id="header-li"><a href="/specifications">Specifications</a></li>
+                    <li id="header-li"><a href="/how-to">How-to</a></li>
+                    <li id="header-li"><a href="/contact">Contact Us</a></li>
                 </nav>
             </div>
 

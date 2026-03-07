@@ -9,6 +9,7 @@ db.exec(`
     alt_text TEXT,
     title TEXT,
     description TEXT,
+    full_description TEXT,
     address TEXT,
     price REAL
   )
@@ -30,5 +31,7 @@ try {
 } catch (e) {
   // column already exists, safe to ignore
 }
+
+
 
 module.exports = db;

@@ -46,11 +46,35 @@ const Location = () => {
                 ))}
             </div>
         </div>
+        <div className='location-info-booking-form'>      
+            <div className="location-info">
+                <h2>Description:</h2>
+                <p className="location-description">{listing.full_description}</p>
+                <p className="location-price"><strong>${listing.price}</strong> per night</p>
+            </div>
 
-        <div className="location-info">
-            <p className="location-description">{listing.description}</p>
-            <p className="location-price"><strong>${listing.price}</strong> per night</p>
-        </div>
+            <div className='booking-form'>
+                <h2>Price: ${listing.price} / per night</h2>
+                <div>
+                    <div id='date-form'>
+                        <div>
+                            <p>Check in: </p>
+                            <input id='date-input' type="date" />
+                        </div>
+                        <div>
+                            <p>Check out:</p>
+                            <input id='date-input' type="date" />
+                        </div>
+                    </div>
+
+                    <div id='number-guest-form'>
+                        <p>Number of guest:</p>
+                        <input id='guest-input' type="number" />
+                    </div>
+                </div>
+                <button id='booking-btn'>Book this place</button>
+            </div>
+        </div>  
     </div>
     </>
   )

@@ -1,0 +1,161 @@
+.static-page {
+    font-family: "DM Sans", sans-serif;
+    max-width: 860px;
+    margin: 4rem auto;
+    padding: 0 2rem;
+}
+
+.static-page h1 {
+    font-size: 2.8rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.static-page .subtitle {
+    color: #717171;
+    font-size: 1.1rem;
+    margin-bottom: 3rem;
+}
+
+.static-page hr {
+    border: none;
+    border-top: 1px solid #ebebeb;
+    margin-bottom: 3rem;
+}
+
+/* ---- Cards grid (Benefits / Specs) ---- */
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+}
+
+.card {
+    border: 1px solid #ebebeb;
+    border-radius: 12px;
+    padding: 1.5rem;
+}
+
+.card h3 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 0.4rem;
+}
+
+.card p {
+    font-size: 0.95rem;
+    color: #717171;
+    line-height: 1.55;
+}
+
+/* ---- Steps (How-to) ---- */
+.steps {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.step {
+    display: flex;
+    gap: 1.25rem;
+    align-items: flex-start;
+}
+
+.step-number {
+    flex-shrink: 0;
+    width: 2.25rem;
+    height: 2.25rem;
+    border-radius: 50%;
+    background: #ff385c;
+    color: #fff;
+    font-weight: 700;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.step-body h3 {
+    font-size: 1.05rem;
+    font-weight: 600;
+    margin-bottom: 0.3rem;
+}
+
+.step-body p {
+    font-size: 0.95rem;
+    color: #717171;
+    line-height: 1.55;
+}
+
+/* ---- Contact form ---- */
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    max-width: 520px;
+}
+
+.contact-form label {
+    font-size: 0.9rem;
+    font-weight: 600;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+
+.contact-form input,
+.contact-form textarea,
+.contact-form select {
+    padding: 0.75rem 1rem;
+    border: 1px solid #b0b0b0;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-family: inherit;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus,
+.contact-form select:focus {
+    border-color: #222;
+}
+
+.contact-form textarea {
+    resize: vertical;
+    min-height: 130px;
+}
+
+.contact-form button {
+    align-self: flex-start;
+    background: #ff385c;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 0.75rem 2rem;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.contact-form button:hover {
+    background: #e0314f;
+}
+
+.contact-info {
+    margin-top: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    color: #717171;
+    font-size: 0.95rem;
+}
+
+.contact-info span {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
