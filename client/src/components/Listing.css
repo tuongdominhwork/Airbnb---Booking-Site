@@ -10,12 +10,14 @@
 
 #place-des {
     font-size: 0.9375rem;
+    font-weight: 400;
     margin: 0.1875rem 0;
     font-family: "DM Sans", sans-serif;
     color: rgb(130, 130, 130);
 }
 
 #place-price {
+    font-weight: 500;
     font-size: 1.125rem;
     margin: 0.1875rem 0;
 }

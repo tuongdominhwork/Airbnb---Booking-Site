@@ -9,16 +9,20 @@ import SpecificationsPage from './pages/SpecificationsPage'
 import HowToPage from './pages/HowToPage'
 import ContactPage from './pages/ContactPage'
 
+const PrivateRoute = ({ children }) => {
+  const token = localStorage.getItem('token')
+  return token ? children : <Navigate to="/login" />
+}
 
 function App() {
 
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<HomePage />} />
+        <Route path="/" element={<PrivateRoute><HomePage /></PrivateRoute>} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/register" element={<RegisterPage />} />
-        <Route path="/listing/:id" element={<Location />} />
+        <Route path="/listing/:id" element={<PrivateRoute><Location /></PrivateRoute>} />
         <Route path="/benefits" element={<BenefitsPage />} />
         <Route path="/specifications" element={<SpecificationsPage />} />
         <Route path="/how-to" element={<HowToPage />} />

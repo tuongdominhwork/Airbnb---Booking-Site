@@ -5,7 +5,13 @@ import './Header.css'
 export default function Header() {
     const location = useLocation()
     const onLoginPage = location.pathname === '/login'
-
+    const name = localStorage.getItem('name')
+    const token = localStorage.getItem('token')
+    function handleLogout() {
+        localStorage.removeItem('token')
+        localStorage.removeItem('name')
+        window.location.href = '/'
+    }
     return(
         <div className="header">
             <div className="logo">
@@ -20,11 +26,13 @@ export default function Header() {
                 </nav>
             </div>
 
-            <a href={onLoginPage ? '/register' : '/login'}>
-                <button id="login-btn">
-                    {onLoginPage ? 'Register' : 'Log in'}
-                </button>
-            </a>
+            {token ? (
+                <button id="login-btn" onClick={handleLogout}>{name}</button>
+            ) : (
+                <a href={onLoginPage ? '/register' : '/login'}>
+                    <button id="login-btn">{onLoginPage ? 'Register' : 'Log in'}</button>
+                </a>
+            )}
         </div>
     )
 }

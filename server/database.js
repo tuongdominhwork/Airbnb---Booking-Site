@@ -25,9 +25,25 @@ db.exec(`
   )
 `);
 
+db.exec(`
+  CREATE TABLE IF NOT EXISTS users (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    name TEXT NOT NULL,
+    email TEXT UNIQUE NOT NULL,
+    password TEXT NOT NULL
+  )
+`);
+
 // Migrate: add address column if it doesn't exist yet
 try {
   db.exec('ALTER TABLE listings ADD COLUMN address TEXT');
+} catch (e) {
+  // column already exists, safe to ignore
+}
+
+// Migrate: add name column to users if it doesn't exist yet
+try {
+  db.exec('ALTER TABLE users ADD COLUMN name TEXT');
 } catch (e) {
   // column already exists, safe to ignore
 }
