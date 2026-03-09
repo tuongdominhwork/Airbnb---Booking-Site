@@ -1,22 +1,48 @@
 import React from 'react'
 import { useParams } from 'react-router-dom'
 import Header from './Header'
+import NotFoundPage from '../pages/NotFoundPage'
 import './Location.css'
+
 const Location = () => {
     const { id } = useParams()
     const [listing, setListing] = React.useState(null)
     const [selectedImg, setSelectedImg] = React.useState(0)
+    const [status, setStatus] = React.useState('loading')
 
     React.useEffect(() => {
+        setStatus('loading')
         fetch(`http://localhost:3001/api/listings/${id}`)
-            .then(res => res.json())
+            .then(async res => {
+                if (res.status === 404) {
+                    setListing(null)
+                    setStatus('not-found')
+                    return null
+                }
+
+                if (!res.ok) {
+                    throw new Error('Failed to load listing')
+                }
+
+                return res.json()
+            })
             .then(data => {
+                if (!data) {
+                    return
+                }
+
                 setListing(data)
                 setSelectedImg(0)
+                setStatus('ready')
+            })
+            .catch(() => {
+                setListing(null)
+                setStatus('not-found')
             })
     }, [id])
 
-    if (!listing) return <p>Loading...</p>
+    if (status === 'loading') return <p>Loading...</p>
+    if (status === 'not-found') return <NotFoundPage />
 
   return (
     <>
@@ -24,7 +50,7 @@ const Location = () => {
         <div className="location-page">
         <h1 className="location-title">{listing.title}</h1>
         <div id='location-address'>
-            <img src="/public/location_logo.png" alt="location icon" />
+            <img src="/location_logo.png" alt="location icon" />
             <p>{listing.address}</p>
         </div>
         

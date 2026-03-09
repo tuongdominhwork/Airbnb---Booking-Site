@@ -8,6 +8,7 @@ import BenefitsPage from './pages/BenefitsPage'
 import SpecificationsPage from './pages/SpecificationsPage'
 import HowToPage from './pages/HowToPage'
 import ContactPage from './pages/ContactPage'
+import NotFoundPage from './pages/NotFoundPage'
 
 const PrivateRoute = ({ children }) => {
   const token = localStorage.getItem('token')
@@ -19,7 +20,7 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<PrivateRoute><HomePage /></PrivateRoute>} />
+        <Route path="/" element={<HomePage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/listing/:id" element={<PrivateRoute><Location /></PrivateRoute>} />
@@ -27,6 +28,7 @@ function App() {
         <Route path="/specifications" element={<SpecificationsPage />} />
         <Route path="/how-to" element={<HowToPage />} />
         <Route path="/contact" element={<ContactPage />} />
+        <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </BrowserRouter>
   )
