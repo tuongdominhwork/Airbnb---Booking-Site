@@ -1,5 +1,5 @@
 import React from 'react'
-import { useLocation } from 'react-router-dom'
+import { useLocation, useNavigate } from 'react-router-dom'
 import './Header.css'
 
 export default function Header() {
@@ -7,11 +7,8 @@ export default function Header() {
     const onLoginPage = location.pathname === '/login'
     const name = localStorage.getItem('name')
     const token = localStorage.getItem('token')
-    function handleLogout() {
-        localStorage.removeItem('token')
-        localStorage.removeItem('name')
-        window.location.href = '/'
-    }
+    const navigate = useNavigate()
+    
     return(
         <div className="header">
             <div className="logo">
@@ -27,7 +24,7 @@ export default function Header() {
             </div>
 
             {token ? (
-                <button id="login-btn" onClick={handleLogout}>{name}</button>
+                <button id="login-btn" onClick={() => navigate('/profile')} >{name}</button>
             ) : (
                 <a href={onLoginPage ? '/register' : '/login'}>
                     <button id="login-btn">{onLoginPage ? 'Register' : 'Log in'}</button>

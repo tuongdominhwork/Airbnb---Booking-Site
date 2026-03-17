@@ -1,0 +1,58 @@
+.profile-container {
+    margin-top: 80px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: "DM Sans", sans-serif;
+}
+
+.profile-tabs {
+    display: flex;
+    gap: 20px;
+}
+
+.profile-btn {
+    height: 2.625rem;
+    padding: 0 50px;
+    border: 1px solid #D8D8D8;
+    border-radius: 0.9375rem;
+    background: #D8D8D8;
+    color: #F2F2F7;
+    font-family: inherit;
+    cursor: pointer;
+}
+
+#logout-section {
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#logout-btn {
+    margin-top: 10px;
+    width: 28.8125rem;
+    height: 2.625rem;
+    border: 1px solid #FF5F63;
+    border-radius: 0.9375rem;
+    background: #FF5F63;
+    color: #F2F2F7;
+    font-family: inherit;
+}
+
+.profile-btn--active {
+    background: #FF5F63;
+    border: 1px solid #FF5F63;
+}
+
+#add-accom-btn {
+    margin-top: 40px;
+    width: 28.8125rem;
+    height: 2.625rem;
+    border: 1px solid #FF5F63;
+    border-radius: 0.9375rem;
+    background: #FF5F63;
+    color: #F2F2F7;
+    font-family: inherit;
+}

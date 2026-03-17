@@ -34,19 +34,16 @@ db.exec(`
   )
 `);
 
-// Migrate: add address column if it doesn't exist yet
-try {
-  db.exec('ALTER TABLE listings ADD COLUMN address TEXT');
-} catch (e) {
-  // column already exists, safe to ignore
-}
-
-// Migrate: add name column to users if it doesn't exist yet
-try {
-  db.exec('ALTER TABLE users ADD COLUMN name TEXT');
-} catch (e) {
-  // column already exists, safe to ignore
-}
+db.exec(`
+  CREATE TABLE IF NOT EXISTS bookings (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    user_id INTEGER,
+    listing_id INTEGER,
+    check_in DATE,
+    check_out DATE,
+    guests INTEGER
+  )
+`)
 
 
 

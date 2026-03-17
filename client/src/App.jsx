@@ -9,6 +9,7 @@ import SpecificationsPage from './pages/SpecificationsPage'
 import HowToPage from './pages/HowToPage'
 import ContactPage from './pages/ContactPage'
 import NotFoundPage from './pages/NotFoundPage'
+import ProfilePage from './pages/ProfilePage'
 
 const PrivateRoute = ({ children }) => {
   const token = localStorage.getItem('token')
@@ -28,6 +29,7 @@ function App() {
         <Route path="/specifications" element={<SpecificationsPage />} />
         <Route path="/how-to" element={<HowToPage />} />
         <Route path="/contact" element={<ContactPage />} />
+        <Route path="/profile" element={<ProfilePage />} />
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </BrowserRouter>

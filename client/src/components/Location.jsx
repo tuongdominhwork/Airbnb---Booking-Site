@@ -10,6 +10,35 @@ const Location = () => {
     const [selectedImg, setSelectedImg] = React.useState(0)
     const [status, setStatus] = React.useState('loading')
 
+    const [checkIn, setCheckIn] = React.useState('')
+    const [checkOut, setCheckOut] = React.useState('')
+    const [numGuest, setNumGuest] = React.useState('')
+    const [error, setError] = React.useState('')
+
+    const handleBooking = async (e) => {
+        e.preventDefault()
+
+        const res = await fetch('http://localhost:3001/api/bookings', {
+            method: "POST",
+            headers: {'Content-Type' : 'application/json'},
+            body: JSON.stringify({
+                user_id: localStorage.getItem('userId'),
+                listing_id: id,
+                check_in: checkIn,
+                check_out: checkOut,
+                guests: numGuest
+            })
+        })
+
+        const data = await res.json()
+
+        if (!res.ok) {
+            setError(data.error)
+            return 
+        }
+
+        window.location.href = '/'
+    }
     React.useEffect(() => {
         setStatus('loading')
         fetch(`http://localhost:3001/api/listings/${id}`)
@@ -79,27 +108,28 @@ const Location = () => {
                 <p className="location-price"><strong>${listing.price}</strong> per night</p>
             </div>
 
-            <div className='booking-form'>
+            <form className='booking-form' onSubmit={handleBooking}>
                 <h2>Price: ${listing.price} / per night</h2>
                 <div>
                     <div id='date-form'>
                         <div>
                             <p>Check in: </p>
-                            <input id='date-input' type="date" />
+                            <input id='date-input' type="date" onChange={(e) => setCheckIn(e.target.value)} />
                         </div>
                         <div>
                             <p>Check out:</p>
-                            <input id='date-input' type="date" />
+                            <input id='date-input' type="date" onChange={(e) => setCheckOut(e.target.value)} />
                         </div>
                     </div>
 
                     <div id='number-guest-form'>
                         <p>Number of guest:</p>
-                        <input id='guest-input' type="number" />
+                        <input id='guest-input' type="number" onChange={(e) => setNumGuest(e.target.value)}/>
                     </div>
                 </div>
                 <button id='booking-btn'>Book this place</button>
-            </div>
+                {error && <p style={{ color: 'red' }}>{error}</p>}
+            </form>
         </div>  
     </div>
     </>

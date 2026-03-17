@@ -10,19 +10,31 @@ const Listing = () => {
             .then(res => res.json())
             .then(data => setListings(data))
     }, [])
+
     return (
-        <>
-            {listings.map(listing => (
-                <Link key={listing.id} className="place" to={`/listing/${listing.id}`}>
-                    <img id="place-img" src={listing.image} alt={listing.alt_text} />
-                    <h4 id="place-title">{listing.title}</h4>
-                    <p id="place-des">{listing.description}</p>
-                    <p id="place-price">
-                        <span style={{ fontWeight: "bold" }}>${listing.price}</span> per night
-                    </p>
+        <div className="listing-grid">
+            {listings.map((listing, index) => (
+                <Link
+                    key={listing.id}
+                    className="place"
+                    style={{ animationDelay: `${index * 80}ms` }}
+                    to={`/listing/${listing.id}`}
+                >
+                    <div className="place-media">
+                        <img className="place-img" src={listing.image} alt={listing.alt_text} />
+                        <div className="place-overlay" />
+                        <p className="place-eyebrow">Stay</p>
+                    </div>
+                    <div className="place-copy">
+                        <h4 className="place-title">{listing.title}</h4>
+                        <p className="place-description">{listing.description}</p>
+                        <p className="place-price">
+                            <span>${listing.price}</span> per night
+                        </p>
+                    </div>
                 </Link>
             ))}
-        </>
+        </div>
     )
 }
 
