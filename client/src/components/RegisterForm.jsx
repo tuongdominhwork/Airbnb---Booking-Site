@@ -1,5 +1,6 @@
 import React from 'react'
 import './RegisterForm.css'
+import API_URL from '../api'
 
 const RegisterForm = () => {
   const [name, setName] = React.useState('')
@@ -10,7 +11,7 @@ const RegisterForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault()
 
-    const res = await fetch('http://localhost:3001/api/auth/register', {
+    const res = await fetch(`${API_URL}/api/auth/register`, {
       method: 'POST',
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify({name, email, password})

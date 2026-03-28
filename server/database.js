@@ -1,6 +1,6 @@
 const Database = require("better-sqlite3")
 
-const db = new Database('listing.db')
+const db = new Database('data.db')
 
 db.exec(`
   CREATE TABLE IF NOT EXISTS listings (

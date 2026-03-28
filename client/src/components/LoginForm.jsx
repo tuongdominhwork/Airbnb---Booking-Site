@@ -1,5 +1,6 @@
 import React from 'react'
 import './LoginForm.css'
+import API_URL from '../api'
 
 const LoginForm = () => {
   const [email, setEmail] = React.useState('')
@@ -9,7 +10,7 @@ const LoginForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault()
 
-    const res = await fetch('http://localhost:3001/api/auth/login', {
+    const res = await fetch(`${API_URL}/api/auth/login`, {
       method: 'POST',
       headers: {'Content-Type' : 'application/json'},
       body: JSON.stringify({ email, password })

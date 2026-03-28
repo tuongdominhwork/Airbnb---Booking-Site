@@ -1,12 +1,13 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import './Listing.css'
+import API_URL from '../api'
 
 const Listing = () => {
     const [listings, setListings] = React.useState([])
 
     React.useEffect(() => {
-        fetch('http://localhost:3001/api/listings')
+        fetch(`${API_URL}/api/listings`)
             .then(res => res.json())
             .then(data => setListings(data))
     }, [])

@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom'
 import Header from './Header'
 import NotFoundPage from '../pages/NotFoundPage'
 import './Location.css'
+import API_URL from '../api'
 
 const Location = () => {
     const { id } = useParams()
@@ -18,7 +19,7 @@ const Location = () => {
     const handleBooking = async (e) => {
         e.preventDefault()
 
-        const res = await fetch('http://localhost:3001/api/bookings', {
+        const res = await fetch(`${API_URL}/api/bookings`, {
             method: "POST",
             headers: {'Content-Type' : 'application/json'},
             body: JSON.stringify({
@@ -41,7 +42,7 @@ const Location = () => {
     }
     React.useEffect(() => {
         setStatus('loading')
-        fetch(`http://localhost:3001/api/listings/${id}`)
+        fetch(`${API_URL}/api/listings/${id}`)
             .then(async res => {
                 if (res.status === 404) {
                     setListing(null)

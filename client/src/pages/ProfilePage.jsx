@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import Header from '../components/Header'
 import './ProfilePage.css'
+import API_URL from '../api'
 
 const ProfilePage = () => {
   const [activeTab, setActiveTab] = useState('profile')
@@ -12,7 +13,7 @@ const ProfilePage = () => {
   React.useEffect(() => {
     if (activeTab === 'bookings') {
       const userId = localStorage.getItem('userId')
-      fetch(`http://localhost:3001/api/bookings/user/${userId}`)
+      fetch(`${API_URL}/api/bookings/user/${userId}`)
         .then(res => res.json())
         .then(data => setBookings(data))
     }
@@ -63,6 +64,7 @@ const ProfilePage = () => {
                         <p>Check in: {b.check_in}</p>
                         <p>Check out: {b.check_out}</p>
                         <p>Guests: {b.guests}</p>
+                        <p>_________________</p>
                     </div>
                 ))}
             </div>
