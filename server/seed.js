@@ -1,10 +1,10 @@
 const db = require('./database');
 
-// Clear existing data
-db.prepare('DELETE FROM listing_images').run();
-db.prepare('DELETE FROM listings').run();
-db.exec(`DELETE FROM sqlite_sequence WHERE name='listings'`);
-db.exec(`DELETE FROM sqlite_sequence WHERE name='listing_images'`);
+const existing = db.prepare('SELECT COUNT(*) as count FROM listings').get();
+if (existing.count > 0) {
+  console.log('Database already seeded, skipping.');
+  process.exit(0);
+}
 
 const listings = [
   {

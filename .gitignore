@@ -5,6 +5,7 @@ server/node_modules/
 
 # SQLite database
 server/*.db
+server/db/
 
 # Build output
 client/dist/
