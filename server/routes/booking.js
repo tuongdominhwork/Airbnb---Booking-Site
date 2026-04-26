@@ -11,7 +11,12 @@ router.post('/bookings', (req,res) => {
 })
 
 router.get('/bookings/user/:userId', (req, res) => {
-    const bookings = db.prepare('SELECT * FROM bookings WHERE user_id = ?').all(req.params.userId)
+    const bookings = db.prepare(`
+        SELECT b.*, l.title, l.image, l.address, l.price
+        FROM bookings b
+        JOIN listings l ON b.listing_id = l.id
+        WHERE b.user_id = ?
+    `).all(req.params.userId)
     res.json(bookings)
 })
 
