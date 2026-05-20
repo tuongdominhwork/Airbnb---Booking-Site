@@ -1,0 +1,31 @@
+#content {
+    text-align: center;
+}
+
+#big-title {
+    font-size: 8.125rem;
+    font-weight: 100;
+}
+
+.container {
+    margin-top: 1.25rem;
+    padding: 0 2rem 4rem;
+}
+
+@media (max-width: 430px) {
+    .container {
+        padding: 0 1rem 3rem;
+    }
+}
+
+@media (max-width: 1350px) {
+    #big-title {
+        font-size: 5.625rem;
+    }
+}
+
+@media (max-width: 970px) {
+    #big-title {
+        font-size: 3.125rem;
+    }
+}
