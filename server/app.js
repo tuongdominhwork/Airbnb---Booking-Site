@@ -3,7 +3,9 @@ const cors = require('cors')
 
 const app = express()
 
-app.use(cors())
+app.use(cors({
+  origin: process.env.CLIENT_URL || true
+}))
 app.use(express.json())
 
 const listingsRouter = require('./routes/listings')
